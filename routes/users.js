@@ -143,7 +143,7 @@ module.exports = function () {
                 { assignedUser: id },
                 { $set: { assignedUser: '', assignedUserName: 'unassigned' } }
             );
-            return send(res, 200, 'User deleted', user);
+            return send(res, 204);
         } catch (err) {
             return util.handleError(res, err);
         }

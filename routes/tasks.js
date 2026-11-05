@@ -158,7 +158,7 @@ module.exports = function () {
             var task = await Task.findByIdAndDelete(id);
             if (!task) throw notFound(id);
             await User.updateMany({ pendingTasks: id }, { $pull: { pendingTasks: id } });
-            return send(res, 200, 'Task deleted', task);
+            return send(res, 204);
         } catch (err) {
             return util.handleError(res, err);
         }
